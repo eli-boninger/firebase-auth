@@ -91,3 +91,27 @@ export const Register = () => {
     );
 };
 ```
+
+## Create a Login Page
+
+## Add a protected route with a signout button
+
+
+## Set up a server
+1. Initialize a new node/express application.
+2. Install firebase admin:
+```
+npm install firebase-admin --save
+```
+3. In the firebase console, navigate to Project settings -> Service accounts.
+4. Hit the "Generate new private key" button and confirm. Save this key somewhere secure where you can easily locate it.
+5. Add an environment variable with the path to the key. The variable must be named `GOOGLE_APPLICATION_CREDENTIALS`.
+```
+GOOGLE_APPLICATION_CREDENTIALS=../path/to/json-credential.json
+```
+6. Use the this code to initialize the app:
+```
+import { initializeApp, applicationDefault } from 'firebase-admin/app';
+
+initializeApp({ credential: applicationDefault() });
+```
