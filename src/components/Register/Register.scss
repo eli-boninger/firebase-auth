@@ -1,0 +1,14 @@
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 15rem;
+    margin: 0 auto;
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        width: 100%;
+    }
+}
