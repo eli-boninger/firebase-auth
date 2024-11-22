@@ -13,7 +13,10 @@ export const Login = () => {
             const user = userCredential.user;
 
             console.log(user);
-            navigate('/');
+
+            if (user) {
+                navigate('/');
+            }
         }
     };
 

@@ -6,13 +6,14 @@ export const Register = () => {
         e.preventDefault();
 
         const auth = getAuth();
-        if (e.target.password.value === e.target.confirm.value && !!e.target.email.value && !!e.target.password.value) {
+        const [email, password, confirmPassword] = [e.target.email.value, e.target.password.value, e.target.confirm.value];
+        if (password === confirmPassword && !!email && !!password) {
             const userCredential = await createUserWithEmailAndPassword(auth, e.target.email.value, e.target.password.value);
             const user = userCredential.user;
 
             console.log(user);
         } else {
-
+            // display validation errors
         }
 
     };
