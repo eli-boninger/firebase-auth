@@ -37,7 +37,7 @@ import { firebaseConfig } from './config/firebase';
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 ```
-This configures your react app to connect to firebase on startup. Check for any console errors at this time.
+This configures your react app to connect to firebase on startup. Check for any console errors.
 
 ### Add authentication method(s) to Firebase app
 1. From the firebase project console, click Authentication, then "Get Started".
@@ -92,20 +92,18 @@ Export the above as a `Register` component or something similar. By rendering th
 ## Create a Login Page
 Login is similar. Here is my JSX:
 ```jsx
-<>
-    <form onSubmit={handleSubmit} className="login-form">
-        <label className="login-form__label">
-            Email*
-            <input type="email" name="email" id="email" />
-        </label>
-        <label className="login-form__label">
-            Password*
-            <input type='password' name='password' id='password' />
-        </label>
+<form onSubmit={handleSubmit} className="login-form">
+    <label className="login-form__label">
+        Email*
+        <input type="email" name="email" id="email" />
+    </label>
+    <label className="login-form__label">
+        Password*
+        <input type='password' name='password' id='password' />
+    </label>
 
-        <button type='submit'>Sign Up</button>
-    </form>
-</>
+    <button type='submit'>Sign Up</button>
+</form>
 ```
 And a similar `handleSubmit`:
 ```jsx
@@ -302,3 +300,5 @@ useEffect(() => {
 If this the above is successful, you should be able to see in the network tab of the dev tools that a request was made to your endpoint was made and that the payload contains all the information about the user that was gleaned from the token.
 
 Congrats! You have a full stack authenticated application.
+
+Note that we're still missing a lot here. We have no try/catch statements for error handling, no user-facing front end validation, and no actual endpoints that take advantage of the user information to which we now have access.
